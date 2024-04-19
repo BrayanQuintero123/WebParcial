@@ -27,6 +27,30 @@ function agregarGusto() {
     var editarCell = newRow.insertCell(3);
       var editSpan = document.createElement('span');
       editSpan.textContent = 'Edit';
-      editSpan.classList.add('edit-cell'); // Aplica el estilo a la celda de "Edit"
+      editSpan.classList.add('edit-cell'); 
       editarCell.appendChild(editSpan);
   }
+
+  function enviarFormulario() {
+    // Verifica si hay al menos un gusto
+    var tablaGustos = document.getElementById('tablaGustos').getElementsByTagName('tbody')[0];
+    var numFilas = tablaGustos.rows.length;
+    if (numFilas === 0) {
+        alert("Debes agregar al menos un gusto antes de enviar el formulario.");
+        return;
+    }
+
+    // Construye la URL con los datos del formulario
+    var nombre = document.getElementById('nombre').value;
+    var email = document.getElementById('email').value;
+    var gustos = [];
+    var porcentajes = [];
+    for (var i = 0; i < numFilas; i++) {
+        gustos.push(tablaGustos.rows[i].cells[1].textContent);
+        porcentajes.push(tablaGustos.rows[i].cells[2].textContent);
+    }
+    var url = 'envio.html' + '?nombre=' + encodeURIComponent(nombre) + '&email=' + encodeURIComponent(email) + '&gustos=' + encodeURIComponent(gustos.join(',')) + '&porcentajes=' + encodeURIComponent(porcentajes.join(','));
+
+    // Redirige a la otra página HTML con los datos del formulario en la URL
+    window.location.href = url;
+}

@@ -5,15 +5,15 @@
 
 .container {
     display: flex;
-    align-items: center; /* Alinea verticalmente */
+    align-items: center; 
   }
   
   .container input[type="tel"] {
-    width: 70%; /* Campo de entrada ocupa el 80% del ancho */
+    width: 70%; 
   }
   
   .container button {
-    width: 20%; /* Botón ocupa el 20% del ancho */
+    width: 20%; 
   }
 
 body{
@@ -59,7 +59,7 @@ table {
 }
 
 .edit-cell {
-    text-align: center; /* Alinea el texto al centro */
+    text-align: center; 
 }
 
 input{
@@ -172,10 +172,10 @@ p{
 }
 
 .form-container {
-    max-width: 500px; /* Ajusta este valor según el ancho máximo deseado */
+    max-width: 500px; 
     margin: 80px auto;
     padding: 20px;
     border-radius: 10px;
     background-color: #fbfbfb;
-    overflow: auto; /* Añade barras de desplazamiento si el contenido excede el tamaño del contenedor */
+    overflow: auto; 
 }

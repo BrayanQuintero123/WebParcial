@@ -58,13 +58,53 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <!-- Aquí se agregarán dinámicamente las filas de la tabla -->
                                     </tbody>
                             </table>
 					</form>
 		</div>	
-	</div>
+        <div class="botonenvio">
+            <button type="submit" class="button" onclick="enviarFormulario()">Enviar</button>
+	    </div>
 </div>
-
 </body>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Agrega un listener de eventos a la tabla para detectar clics en la palabra "Edit"
+    document.getElementById('tablaGustos').addEventListener('click', function(event) {
+        var target = event.target;
+        // Verifica si se hizo clic en la palabra "Edit"
+        if (target.tagName === 'SPAN' && target.textContent === 'Edit') {
+            var row = target.parentNode.parentNode; // Obtiene la fila de la tabla
+            var gustoCell = row.cells[1]; // Obtiene la celda del gusto
+            var porcentajeCell = row.cells[2]; // Obtiene la celda del porcentaje
+            
+            var gustoInput = document.createElement('input');
+            gustoInput.type = 'text';
+            gustoInput.value = gustoCell.textContent;
+            gustoInput.style.maxWidth = '100px'; // Establece un ancho máximo para el campo de gusto
+            gustoCell.textContent = '';
+            gustoCell.appendChild(gustoInput);
+
+            var porcentajeInput = document.createElement('input');
+            porcentajeInput.type = 'text';
+            porcentajeInput.value = porcentajeCell.textContent;
+            porcentajeInput.style.maxWidth = '50px'; // Establece un ancho máximo para el campo de porcentaje
+            porcentajeCell.textContent = '';
+            porcentajeCell.appendChild(porcentajeInput);
+
+            target.textContent = 'Save';
+        } else if (target.tagName === 'SPAN' && target.textContent === 'Save') {
+            var row = target.parentNode.parentNode;
+            var gustoInput = row.cells[1].querySelector('input');
+            var porcentajeInput = row.cells[2].querySelector('input');
+            
+            row.cells[1].textContent = gustoInput.value;
+            row.cells[2].textContent = porcentajeInput.value;
+
+            target.textContent = 'Edit';
+        }
+    });
+});
+
+</script>
 </html>
