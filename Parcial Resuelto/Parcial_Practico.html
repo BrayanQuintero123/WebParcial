@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulario de Gustos</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+<link rel="stylesheet" href="stilo.css">
+<script src="comportamiento.js"></script>
+</head>
+<body>
+<div class="form-container">
+    <div class="contact_form">
+
+		<div class="formulario">			
+      <h1>Formulario de contacto</h1>
+				<h3>Formulario de afilacion</h3>
+
+
+					<form action="submeter-formulario.php" method="post">				
+
+						
+								<p>
+									<label for="nombre" class="colocar_nombre">
+									</label>
+										<input type="text" name="introducir_nombre" id="nombre" required="obligatorio" placeholder="NombreCompleto">
+								</p>
+							
+								<p>
+									<label for="email" class="colocar_email">
+									</label>
+										<input type="email" name="introducir_email" id="email" required="obligatorio" placeholder="Email">
+								</p>
+						
+								<p>
+									<label for="telefone" class="colocar_telefono">
+									</label>
+										<input type="tel" name="introducir_telefono" id="telefono" placeholder="text">
+								</p>	
+                                
+                                						
+								<p>
+									<label for="gustos" class="colocar_gusto">
+									</label>
+                                    <div class="container">
+                                        <input type="text" id="gusto" placeholder="Introduce un gusto">
+                                        <button type="button" class="button" onclick="agregarGusto()">Gustos</button>
+                                    </div>
+								</p>
+                                
+                                <table id="tablaGustos">
+                                    <thead>
+                                    <tr>
+                                        <td> <i class="bi bi-clipboard-plus-fill"></i></td>
+                                        <th>Gusto</th>
+                                        <th>%</th>
+                                        <th>Edit</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <!-- Aquí se agregarán dinámicamente las filas de la tabla -->
+                                    </tbody>
+                            </table>
+					</form>
+		</div>	
+	</div>
+</div>
+
+</body>
+</html>
